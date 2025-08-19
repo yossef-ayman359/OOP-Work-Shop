@@ -1,0 +1,4 @@
+D:/For_courses/files_c++/cmake-build-debug/CMakeFiles/new_target.dir
+D:/For_courses/files_c++/cmake-build-debug/CMakeFiles/new_target1.dir
+D:/For_courses/files_c++/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/For_courses/files_c++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
