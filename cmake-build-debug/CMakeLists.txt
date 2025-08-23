@@ -1,11 +1,6 @@
-add_executable(new_target Rectangle.cpp Rectangle.h
-        Circle.cpp
-        Circle.h
-        YossefAyman_TASK_5_V2.cpp
-        YossefAyman_TASK_5_V1.cpp
+add_executable(new_target
         Student.cpp
         Student.h
-        Triangle.cpp
-        Triangle.h
+        Yossef_Ayman_Task_6.cpp
 )
 add_executable(new_target1 Circle.cpp Circle.h)

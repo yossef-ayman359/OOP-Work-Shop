@@ -1,44 +1,66 @@
 
 #include "Student.h"
 
-vector< pair<string,int> > Student::names;
+template<class T>
+vector< Student<T> > StudentUtils<T>::students;
 
+template<class T>
+Student<T>::Student(string name, T id, T grade) : name(name), id(id), grade(grade) {cnt++; StudentUtils<T>::students.push_back(*this);}
 
-Student::Student()
+template<class T>
+Student<T>::Student() : name("No name"), id(0), grade(0) {}
+
+template<class T>
+Student<T>::~Student() { cnt--; }
+
+template<class T>
+istream& operator>>(istream& in, Student<T>& sdt)
 {
-    name = "NO name";
-    rollNo = 0;
-    totalStudents++;
+  cout << "Name & Id & Grade:\n";
+  in >> sdt.name >> sdt.id >> sdt.grade;
+  StudentUtils<T>::students.push_back(sdt);
+  Student<T>::cnt++;
+  return in;
 }
 
-void Student::getTotalStudents()
+template<class T>
+ostream& operator<<(ostream& out, Student<T>& s)
 {
-    cout << "Number of student is: " << totalStudents << '\n';
-    cout << "Number of unregistered students: " << totalStudents-names.size() << endl;
-    cout << "____________________________________\n";
+  out << "\tName: " << s.name << "\n\tId: " << s.id << "\n\tGrade: " << s.grade << endl;
+  return out;
 }
 
-void Student::displayAllStudents()
+template<class T>
+bool isBetter(const Student<T>& s1, const Student<T>& s2)
 {
-    cout << "\n\tShow all registered students:\n\n";
-    for (auto it : names)
-        {
-        cout << "Student name: " << it.first << "\n Student roll no: " << it.second << '\n';
-        cout << "____________________________________\n";
-    }
+  return s1.grade > s2.grade;
 }
 
-ostream& operator<<(ostream& out, Student& sd)
+string s = "---------------------------------------\n";
+template<class T>
+void StudentUtils<T>::printTopStudent()
 {
-    out << "Student name: " << sd.name << "\n Student roll no: " << sd.rollNo << endl;
-    return out;
-}
-istream& operator>>(istream& in, Student& sd)
-{
-    cout << "Name & Roll no.\n";
-    in >> sd.name >> sd.rollNo;
-    Student::names.push_back({sd.name, sd.rollNo});
-    return in;
+  int max(0);
+  Student<T> temp_s;
+  for (auto it : students)
+  {
+    if (it.grade > max)
+      temp_s = it, max = it.grade;
+  }
+  cout << "The best student:\n";
+  cout << temp_s << s;
 }
 
-// int Student::totalStudents = 0;
+template<class T>
+void StudentUtils<T>::printAll()
+{
+  cout << s << "Print mode\n" << s;
+  for(auto& it : students)
+    cout << it << s;
+}
+
+template<class T>
+void Student<T>::Count_stud()
+{
+  cout << "Number of student: " << (cnt < 0 ? -cnt : cnt) << endl;
+}
