@@ -1,0 +1,60 @@
+			Mostafa Mahmoud: Page(3, 4) Method and Operator (17)
+
+1 - Product (abstract)
+Attributes: int id (static counter), string title, string description, double price, string category
+Static: static int nextId; static double globalDiscount;
+Methods: constructor, virtual display(ostream&) const, virtual getType() const, double priceAfterDiscount() const
+Operators: operator== (compare id), friend ostream& operator<<(...)
+
+2 - PhysicalProduct : Product
+Attributes: int stockQuantity, double weight
+Methods: bool reduceStock(int qty), increaseStock(int qty), override display() and getTyp().
+
+3 - DigitalProduct : Product
+Attributes: double fileSizeMB, string format
+Methods: override display() and getType().
+
+4 - Inventory<T> (template)
+Internal container: vector<T> or unordered_map<int,T>
+Methods: addItem, removeItem(int id), T* findById(int), vector<T> searchByTitle(string), sortByPrice(bool asc) (use std::sort + lambda).
+
+==============================================================================================================================================
+			Mostafa Morsey: Page(4, 5) Method and Operator (17)
+
+1 - CartItem
+Attributes: shared_ptr<Product> product, int quantity
+Method: double subtotal() const.
+
+2 - ShoppingCart
+Attributes: vector<CartItem> items
+Methods: addItem(shared_ptr<Product>, int) && removeItem (productId) &&
+ updateQuantity(id, qty) && calculateTotal() (use std::accumulate) && sortByPrice() (lambda) &&
+  friend void applyDiscount(ShoppingCart&, double) && friend ostream& operator<<(ostream&, const ShoppingCart&) &&
+   ShoppingCart operator+(const ShoppingCart&) const (optional).
+
+3 - Payment (abstract)
+Method: virtual bool process(double amount) = 0
+Concrete: CreditCardPayment && CashOnDelivery (simulate behavior)
+
+4 - Shop (coordinator)
+Attributes: Inventory<shared_ptr<Product>> products, map<int, shared_ptr<User>> users, vector<Order> orders
+Methods: registerCustomer && login && addProduct && checkoutCustomer && searchProducts (use find_if + lambda) && generateSalesReport (use accumulate).
+
+==============================================================================================================================================
+			Yossef Ayman: Page(4, 5) Method and Operator (14)
+
+1 - User (abstract)
+Attributes: int userID (static counter), string name, string email, password hash
+Methods: virtual display(ostream&) const, authentication helpers
+
+2 - Customer : User
+Attributes: string address, ShoppingCart cart, list<Order> orderHistory
+Methods: addToCart(), checkout(shared_ptr<Payment>), viewOrders().
+
+3 - Admin : User
+Methods: addProduct, editProduct, removeProduct, updateStock, viewReports()
+Optionally declared as friend of Product for direct access to internals.
+
+4 - Order
+Attributes: static int nextOrderId, int orderId, int customerId, vector<CartItem> purchasedItems, double totalAmount, string status, string date
+Methods: constructor (calculates total), updateStatus(), friend printInvoice(const Order&, const Customer&), operator<<.
