@@ -1,3 +1,6 @@
+#ifndef PRODUCT_H
+#define PRODUCT_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -52,5 +55,4 @@ public:
     string get_category() const { return category; }
 };
 
-int Product::next_id = 1;
-double Product::global_discount = 0.0;
+#endif // PRODUCT_H
