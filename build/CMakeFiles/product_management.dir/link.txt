@@ -1,1 +1,0 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/product_management.dir/main.cpp.o CMakeFiles/product_management.dir/product.cpp.o CMakeFiles/product_management.dir/physical_product.cpp.o CMakeFiles/product_management.dir/digital_product.cpp.o -o product_management
