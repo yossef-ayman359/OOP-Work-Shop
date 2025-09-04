@@ -1,4 +1,4 @@
-			Mostafa Mahmoud: Page(3, 4) Method and Operator (17)
+			Mostafa Mahmoud: Page(3, 4)
 
 1 - Product (abstract)
 Attributes: int id (static counter), string title, string description, double price, string category
@@ -19,7 +19,7 @@ Internal container: vector<T> or unordered_map<int,T>
 Methods: addItem, removeItem(int id), T* findById(int), vector<T> searchByTitle(string), sortByPrice(bool asc) (use std::sort + lambda).
 
 ==============================================================================================================================================
-			Mostafa Morsey: Page(4, 5) Method and Operator (17)
+			Mostafa Morsey: Page(4, 5)
 
 1 - CartItem
 Attributes: shared_ptr<Product> product, int quantity
@@ -41,7 +41,7 @@ Attributes: Inventory<shared_ptr<Product>> products, map<int, shared_ptr<User>> 
 Methods: registerCustomer && login && addProduct && checkoutCustomer && searchProducts (use find_if + lambda) && generateSalesReport (use accumulate).
 
 ==============================================================================================================================================
-			Yossef Ayman: Page(4, 5) Method and Operator (14)
+			Yossef Ayman: Page(4, 5)
 
 1 - User (abstract)
 Attributes: int userID (static counter), string name, string email, password hash

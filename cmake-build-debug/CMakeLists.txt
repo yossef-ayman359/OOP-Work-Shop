@@ -1,6 +1,9 @@
 add_executable(new_target
-        Student.cpp
-        Student.h
-        Yossef_Ayman_Task_6.cpp
+        main.cpp
+        product.cpp
+        Items.cpp
+        Users.cpp
+        Payment.cpp
+        physical_product.cpp
 )
 add_executable(new_target1 Circle.cpp Circle.h)
