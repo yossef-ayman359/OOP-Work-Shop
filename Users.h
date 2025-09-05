@@ -20,10 +20,14 @@ public:
     Order(int customer_id, double total_amount, string stats, string date, Shopping_Cart s_c);
 
     void update_status(string new_status);
+    int get_customer_id() {return customer_id;}
+    int get_order_id() {return order_id;}
+    Shopping_Cart get_shop_cart() {return sc;}
 
     friend void print_invoice(Order& ord, Customer& ctr);
     friend istream& operator>>(istream& in, Order& order);
     friend ostream& operator<<(ostream& out, Order order);
+
 
     friend class Customer;
 
@@ -41,6 +45,10 @@ protected:
 public:
      User() : name("Admin"), email("nksn"), password("kdnkdnck4") {User_id = next_id++;}
      virtual void display(ostream& out) const = 0;
+
+    virtual string get_name()   {return name;}
+    virtual string get_email()  {return email;}
+    virtual int get_id()        {return User_id;}
 
      friend ostream& operator<<(ostream& out, User* u);
      friend void print_Invoice(Order& ord, Customer& ctr);

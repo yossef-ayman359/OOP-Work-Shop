@@ -4,6 +4,5 @@ add_executable(new_target
         Items.cpp
         Users.cpp
         Payment.cpp
-        physical_product.cpp
 )
-add_executable(new_target1 Circle.cpp Circle.h)
+#add_executable(new_target1 Circle.cpp Circle.h)
